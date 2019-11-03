@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="topnav">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a class="active" href="{{ url_for('write') }}">Write</a>
+    <a href="{{ url_for('newedit') }}">Edit</a>
+    <a href="{{ url_for('newread') }}">Read</a>
+    <a href="{{ url_for('newdelete') }}">Delete</a>
+</div>
+
+<div class="container adjust make">
+  <h5 class="card-header info-color white-text text-center py-4 heading">
+      <strong>Writing Section</strong>
+    </h5>
+      <form class="" action="" method="post">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group adjust1">
+          <legend class="border-bottom mb-4"><br>Start Writing</legend>
+
+          <div class="form-group">
+              {{ form.text.label(class="form-control-label") }}
+
+              {% if form.text.errors %}
+                  {{ form.text(class="form-control form-control-lg is-invalid") }}
+
+                  <div class="invalid-feedback">
+                      {% for error in form.text.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  {{ form.text(class="form-control form-control-lg" ) }}
+              {% endif %}
+          </div>
+          <div class="form-group">
+              {{ form.filename.label(class="form-control-label") }}
+
+              {% if form.filename.errors %}
+                  {{ form.filename(class="form-control form-control is-invalid") }}
+
+                  <div class="invalid-feedback">
+                      {% for error in form.filename.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  {{ form.filename(class="form-control form-control-lg") }}
+              {% endif %}
+          </div>
+          <div class="form-group">
+              {{ form.submit(class="btn btn-outline-info") }}
+          </div>
+        </fieldset>
+
+      </form>
+
+    <div class="bor">
+        <div class="text-muted adjust2">
+            want to do some thing else? <a class="ml-2" href="{{ url_for('home') }}">click here</a>
+        </div>
+    </div>
+      </div>
+
+{% endblock %}

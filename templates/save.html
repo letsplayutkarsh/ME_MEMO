@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container adjust make">
+  <h5 class="card-header info-color white-text text-center py-4 heading">
+      <strong>Editing section</strong>
+    </h5>
+      <form class="" action="" method="post">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group adjust1">
+          <legend class="border-bottom mb-4"><br>Select file to edit</legend>
+          <div class="form-group">
+              {{ form.filename.label(class="form-control-label") }}
+
+              {% if form.filename.errors %}
+                  {{ form.filename(class="form-control form-control-lg is-invalid") }}
+
+                  <div class="invalid-feedback">
+                      {% for error in form.filename.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  {{ form.filename(class="form-control form-control-lg") }}
+              {% endif %}
+          </div>
+        </fieldset>
+        <div class="form-group adjust1">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+        <br>
+      </form>
+      <div class="bor">
+          <div class="text-muted adjust1">
+              want to do some thing else? <a class="ml-2" href="{{ url_for('home') }}">click here</a>
+          </div>
+      </div>
+        </div>
+    </div>
+
+
+{% endblock %}

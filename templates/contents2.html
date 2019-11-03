@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="topnav">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('write') }}">Write</a>
+    <a href="{{ url_for('newedit') }}">Edit</a>
+    <a class="active" href="{{ url_for('newread') }}">Read</a>
+    <a href="{{ url_for('newdelete') }}">Delete</a>
+</div>
+
+<div class="container adjust make">
+  <h5 class="card-header info-color white-text text-center py-4 heading">
+      <strong>Read Text </strong>
+    </h5>
+
+    <div class="written ">
+        <br><br>
+      <pre>{{contents}}</pre>
+        <br><br>
+    </div>
+
+
+    <div class="bor adjust1 tool_box">
+        <div >
+
+          <a class="toolhref   btn btn-primary   " data-toggle="tooltip" data-html="true" title="text to speech" href="{{ url_for('speech')}}" >
+              speak
+          </a>
+
+          <a class="toolhref   btn btn-primary   " data-toggle="tooltip" data-html="true" title="email your note" href="{{ url_for('EmailIt')}}" >
+              email
+          </a>
+
+          <a class="toolhref   btn btn-primary   " data-toggle="tooltip" data-html="true" title="edit your note" href="{{ url_for('edit2')}}" >
+              edit
+          </a>
+
+          <a class="toolhref   btn btn-primary   " data-toggle="tooltip" data-html="true" title="delete your note" href="{{ url_for('delete')}}" >
+              delete
+          </a>
+
+          <a class="toolhref   btn btn-primary   " data-toggle="tooltip" data-html="true" title="share your note" href="{{ url_for('share')}}" >
+              share
+          </a>
+
+          <a class="toolhref   btn btn-primary   " data-toggle="tooltip" data-html="true" title="save this note" href="{{ url_for('save')}}" >
+              save
+          </a>
+
+
+
+        </div>
+    </div>
+    <div class="bor adjust2">
+        <div class="text-muted ">
+            want to do some thing else? <a class="ml-2" href="{{ url_for('home') }}">click here</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

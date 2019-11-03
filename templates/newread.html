@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="topnav">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('write') }}">Write</a>
+    <a href="{{ url_for('newedit') }}">Edit</a>
+    <a class="active" href="{{ url_for('newread') }}">Read</a>
+    <a href="{{ url_for('newdelete') }}">Delete</a>
+</div>
+
+<div class="container adjust">
+<div class="content-section heading">
+  <h5 class="card-header info-color white-text text-center py-4">
+        <strong>Read Files</strong>
+  </h5>
+</div>
+    <br>
+  <div class="list-group dibba ">
+    {% for n in files %}
+      <form action="{{ url_for('newcontents') }}" method="post" class="adjust1">
+
+            <input  type="text" class="forminput" name="file"  value ="{{n.rsplit('.txt',1)[0]}}" readonly>
+            <button class="btn btn-primary menubuttons" type="submit">open</button>
+      </form>
+    {% endfor %}
+  </div>
+
+  <div class="bor adjust2">
+      <div class="text-muted ">
+          want to do some thing else? <a class="ml-2" href="{{ url_for('home') }}">click here</a>
+      </div>
+  </div>
+</div>
+{% endblock %}

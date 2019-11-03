@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<div class="adjust container">
+<h5 class="card-header info-color white-text text-center py-4 heading ">
+    <strong>FIND PEOPLE</strong>
+  </h5>
+    <div class="dibba">
+    <div class="content-section ">
+        <form method="POST" action="" class="class="text-center border border-light p-5"">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group adjust1">
+                <legend class="border-bottom mb-4"><br>Enter your friend's name</legend>
+
+                <div class="form-group">
+                    {{ form.user.label(class="form-control-label") }}
+                    {% if form.user.errors %}
+                        {{ form.user(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.user.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.user(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+              <div class="form-group ">
+                  {{ form.submit(class="btn btn-outline-info") }}
+              </div>
+            </fieldset>
+            </div>
+        </form>
+    <div class="bor adjust1">
+        <div class="text-muted ">
+            want to go back? <a class="ml-2" href="{{ url_for('home') }}">click here</a>
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock content %}

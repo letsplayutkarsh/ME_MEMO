@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container adjust">
+<div class="content-section heading">
+  <h5 class="card-header info-color white-text text-center py-4">
+        <strong>ALL-REQUESTS</strong>
+  </h5>
+</div>
+
+  <div class="list-group dibba">
+    {% for n in req %}
+      <form action="{{ url_for('accept') }}" method="post" class="adjust1">
+
+            <input type="text" name="requester" class="forminput2" value ="{{n}}" readonly>
+            <button class="btn btn-primary menubuttons" type="submit">accept</button>
+            <button class="btn btn-primary menubuttons" type="submit" formaction="{{ url_for('decline') }}">decline</button>
+      </form>
+    {% endfor %}
+  </div>
+
+  <div class="bor">
+      <div class="text-muted adjust2">
+          want to do some thing else? <a class="ml-2" href="{{ url_for('home') }}">click here</a>
+      </div>
+  </div>
+</div>
+{% endblock %}

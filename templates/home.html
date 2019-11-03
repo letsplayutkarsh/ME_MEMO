@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="header">
+  <h1>My-Notes</h1>
+</div>
+
+<div class="topnav">
+    <a class="active" href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('write') }}">Write</a>
+    <a href="{{ url_for('newedit') }}">Edit</a>
+    <a href="{{ url_for('newread') }}">Read</a>
+    <a href="{{ url_for('newdelete') }}">Delete</a>
+    <a href="{{ url_for('login') }} " style="float:right; margin-right:20px;">LogOut</a>
+    <a href="{{ url_for('allfriends') }} " style="float:right; margin-right:20px;">Friends</a>
+    <a href="{{ url_for('find') }} " style="float:right; ">Find</a>
+    <a href="{{ url_for('requests') }} " style="float:right; ">Requests</a>
+    <a href="{{ url_for('sharednotes') }}" style="float:right;">Other-Notes</a>
+
+</div>
+
+
+{% for file in all_file_data %}
+<form action="" method="post" >
+<div class="container adjust3">
+    <div class="list-group-item texthead">Filename = {{file[1].rsplit('.txt',1)[0]}}</div>
+    <div class="written">
+
+            <pre>{{file[0]}}</pre>
+    </div>
+    <div class="bor homebutton">
+                <button class="btn btn-primary mt-3" value="{{file[1].rsplit('.txt',1)[0]}}" name="file" type="submit" formaction="{{ url_for('speech2') }}">speech</button>
+    </div>
+</div>
+</form>
+{% endfor %}
+
+<br>
+{% endblock %}

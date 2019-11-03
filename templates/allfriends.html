@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container adjust">
+<div class="content-section heading">
+  <h5 class="card-header info-color white-text text-center py-4">
+        <strong>ALL-FRIENDS</strong>
+  </h5>
+</div>
+
+  <div class="list-group">
+    {% for n in allfriend %}
+    <div class="list-group-item list-group-item-action">{{n}}</div>
+    {% endfor %}
+  </div>
+
+  <div class="bor">
+      <div class="text-muted adjust2">
+          want to do some thing else? <a class="ml-2" href="{{ url_for('home') }}">click here</a>
+      </div>
+  </div>
+</div>
+{% endblock %}
